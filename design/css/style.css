@@ -1,0 +1,72 @@
+.content {
+    float: left;
+    border: 3px solid black;
+}
+.control {
+    position: absolute;
+    left: 735px;
+    top: 10px;
+    width: 700px;
+    height: 500px;
+}
+
+.wrapper {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: text-top;
+    margin-right: 10px;
+
+}
+
+.btn-wrapper {
+    height: 30px;
+    width: 130px;
+}
+
+.clr-wrapper {
+    height: 26px;
+    width: 50px;
+}
+
+.btn-wrapper input, .clr-wrapper input {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.txt-wrapper {
+    height: 24px;
+    width: 80px;
+}
+
+.txt-wrapper label {
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.txt-wrapper input {
+    overflow: hidden;
+    display: inline-block;
+    width: 50px;
+    height: 100%;
+}
+
+.element {
+    margin-bottom: 15px;
+}
+
+.far-element {
+    margin-top: 45px;
+}
+
+.gravitation {
+    margin-top: 65px;
+}
+
+.position {
+    //margin-bottom: 50px;
+}
+
+.position .txt-wrapper {
+    width: 100px;
+}

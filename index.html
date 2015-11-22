@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./design/css/style.css">
+    <title>My task</title>
+    <script src="application/factory.js"></script>
+    <script src="application/main.js"></script>
+</head>
+<body>
+<canvas class="content" height='500' width='700' id='shape'></canvas>
+<div class="control">
+    <div class="header">
+        <h3>Add Shape:</h3>
+    </div>
+    <div class="position element">
+        <div class="txt-wrapper wrapper">
+            <label for="left">Left:</label>
+            <input type="text" value="0" name="left" id="left">
+        </div>
+        <div class="txt-wrapper wrapper">
+            <label for="top">Top:</label>
+            <input type="text" value="0" name="top" id="top">
+        </div>
+    </div>
+    <div class="rectangle element">
+        <div class="btn-wrapper wrapper">
+            <input type="button" value="Rectangle" onclick="createRectangle()">
+        </div>
+        <div class="clr-wrapper wrapper">
+            <input id="color" type="color" value="rad1" name="color">
+        </div>
+        <div class="txt-wrapper wrapper">
+            <label for="width">W:</label>
+            <input type="text" value="0" name="width" id="width">
+        </div>
+        <div class="txt-wrapper wrapper">
+            <label for="height">H:</label>
+            <input type="text" value="0" name="height" id="height">
+        </div>
+    </div>
+    <div class="circle element">
+        <div class="btn-wrapper wrapper">
+            <input type="button" value="Circle" onclick="createCircle()">
+        </div>
+        <div class="clr-wrapper wrapper">
+            <input id="color1" type="color" value="rad1" name="color1">
+        </div>
+        <div class="txt-wrapper wrapper">
+            <label for="radius">R :</label>
+            <input type="text" value="0" name="radius" id="radius">
+        </div>
+    </div>
+    <div class="triangle element">
+        <div class="btn-wrapper wrapper">
+            <input type="button" value="Triangle" onclick="createTriangle()">
+        </div>
+        <div class="clr-wrapper wrapper">
+            <input id="color0" type="color" value="rad1" name="color0">
+        </div>
+        <div class="txt-wrapper wrapper">
+            <label for="width1">W:</label>
+            <input type="text" value="0" name="width1" id="width1">
+        </div>
+        <div class="txt-wrapper wrapper">
+            <label for="height1">H:</label>
+            <input type="text" value="0" name="height1" id="height1">
+        </div>
+    </div>
+    <div class="far-element btn-wrapper">
+        <input type="button" value="Remove shape" onclick="removeShape()">
+    </div>
+    <div class="gravitation">
+        <input id="gravitation" type="checkbox" onchange="grav(this)">
+        <label for="gravitation">Enable gravitation</label>
+    </div>
+</div>
+<script>
+    var shape = new fabric.Canvas('shape');
+    shape.selection = false;
+    shape.hoverCursor = 'pointer';
+</script>
+</body>
+</html>
