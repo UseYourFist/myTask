@@ -85,4 +85,5 @@ function grav(obj) {
 }
 function removeShape() {
     shape.remove(shape.getActiveObject());
+
 }
