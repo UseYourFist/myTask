@@ -28,17 +28,15 @@ function createRectangle() {
 
 function createCircle() {
     var color1 = document.getElementById("color1").value;
-    var radius = +document.getElementById("radius").value;
+    var radius = +document.getElementById("radius").value || 60;
     var l = +document.getElementById("left").value || 250;
     var t = +document.getElementById("top").value || 100;
-    if(typeof radius == "number") {
-        var rad =  Math.abs(radius)|| 100;
-    }
+
     var circle = new fabric.Circle({
         borderColor: 'red',
         left: l,
         top: t,
-        radius: rad,
+        radius: radius,
         fill: color1,
         stroke: 'gray',
         strokeWidth: 2,

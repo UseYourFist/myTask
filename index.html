@@ -9,18 +9,18 @@
 </head>
 <body>
 <canvas class="content" height='500' width='700' id='shape'></canvas>
-<div class="control">
+    <div class="control">
     <div class="header">
         <h3>Add Shape:</h3>
     </div>
     <div class="position element">
         <div class="txt-wrapper wrapper">
             <label for="left">Left:</label>
-            <input type="number" autofocus placeholder="250" name="left" id="left">
+            <input type="number" autofocus placeholder="250" min="0" max="700" value="250" name="left" id="left">
         </div>
         <div class="txt-wrapper wrapper">
             <label for="top">Top:</label>
-            <input type="number" placeholder="100" name="top" id="top">
+            <input type="number" placeholder="100" min="0" max="500" value="100" name="top" id="top">
         </div>
     </div>
     <div class="rectangle element">
@@ -32,11 +32,11 @@
         </div>
         <div class="txt-wrapper wrapper">
             <label for="width">W:</label>
-            <input type="text" value="0" name="width" id="width">
+            <input type="number" placeholder="100" value="100" min="0" max="700" name="width" id="width">
         </div>
         <div class="txt-wrapper wrapper">
             <label for="height">H:</label>
-            <input type="text" value="0" name="height" id="height">
+            <input type="number" placeholder="100" value="100" min="0" max="500" name="height" id="height">
         </div>
     </div>
     <div class="circle element">
@@ -48,7 +48,7 @@
         </div>
         <div class="txt-wrapper wrapper">
             <label for="radius">R :</label>
-            <input type="text" value="0" name="radius" id="radius">
+            <input type="number" placeholder="60" value="60" min="0" max="250" name="radius" id="radius">
         </div>
     </div>
     <div class="triangle element">
@@ -60,11 +60,11 @@
         </div>
         <div class="txt-wrapper wrapper">
             <label for="width1">W:</label>
-            <input type="text" value="0" name="width1" id="width1">
+            <input type="number" placeholder="100" value="100" min="0" max="500" name="width1" id="width1">
         </div>
         <div class="txt-wrapper wrapper">
             <label for="height1">H:</label>
-            <input type="text" value="0" name="height1" id="height1">
+            <input type="number" placeholder="100" value="100" min="0" max="700" name="height1" id="height1">
         </div>
     </div>
     <div class="far-element btn-wrapper">
