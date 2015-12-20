@@ -69,13 +69,13 @@
         </div>
     </div>
     <div class="clean btn-wrapper">
-        <input type="reset" value="Clean options">
+        <input type="reset" name="rese" value="Clean options">
     </div>
     <div class="far-element btn-wrapper">
         <input type="button" value="Remove shape" onclick="removeShape()">
     </div>
     <div class="far-element-next btn-wrapper">
-        <input type="button" value="Remove shapes" onclick="removeShapes()">
+        <input type="button" value="Clean canvas" onclick="removeShapes()">
     </div>
     <div class="gravitation">
         <input id="gravitation" type="checkbox" onchange="grav(this)">
@@ -84,10 +84,20 @@
 </div>
 </form>
 <script>
-    var shape = new fabric.Canvas('shape');
+    var shape = this.__shape =  new fabric.Canvas('shape');
     shape.backgroundColor = 'white';
     shape.selection = false;
     shape.hoverCursor = 'pointer';
+
+    shape.on('mouse:over', function(e) {
+        e.target.setStroke('red');
+        shape.renderAll();
+    });
+
+    shape.on('mouse:out', function(e) {
+        e.target.setStroke('grey');
+        shape.renderAll();
+    });
 </script>
 </body>
 </html>
