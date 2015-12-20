@@ -40,7 +40,8 @@ function createCircle() {
         fill: color1,
         stroke: 'gray',
         strokeWidth: 2,
-        hasControls: false
+        hasControls: false,
+        perPixelTargetFind: true
     });
     Elements.push(circle);
     shape.add(circle);
@@ -61,7 +62,8 @@ function createTriangle() {
         fill: color0,
         stroke: 'gray',
         strokeWidth: 2,
-        hasControls: false
+        hasControls: false,
+        perPixelTargetFind: true
     });
     Elements.push(triangle);
     shape.add(triangle);
@@ -82,6 +84,11 @@ function grav(obj) {
 
 }
 function removeShape() {
-    shape.remove(shape.getActiveObject());
+    shape.getActiveObject().remove();
+
+}
+
+function removeShapes() {
+        shape.clear().renderAll();
 
 }

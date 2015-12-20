@@ -7,8 +7,9 @@
     <script src="application/factory.js"></script>
     <script src="application/main.js"></script>
 </head>
-<body>
+<body bgcolor="#e6e6fa">
 <canvas class="content" height='500' width='700' id='shape'></canvas>
+<form>
     <div class="control">
     <div class="header">
         <h3>Add Shape:</h3>
@@ -67,16 +68,24 @@
             <input type="number" placeholder="100" value="100" min="0" max="700" name="height1" id="height1">
         </div>
     </div>
+    <div class="clean btn-wrapper">
+        <input type="reset" value="Clean options">
+    </div>
     <div class="far-element btn-wrapper">
         <input type="button" value="Remove shape" onclick="removeShape()">
+    </div>
+    <div class="far-element-next btn-wrapper">
+        <input type="button" value="Remove shapes" onclick="removeShapes()">
     </div>
     <div class="gravitation">
         <input id="gravitation" type="checkbox" onchange="grav(this)">
         <label for="gravitation">Enable gravitation</label>
     </div>
 </div>
+</form>
 <script>
     var shape = new fabric.Canvas('shape');
+    shape.backgroundColor = 'white';
     shape.selection = false;
     shape.hoverCursor = 'pointer';
 </script>

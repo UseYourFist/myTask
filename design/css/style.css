@@ -55,8 +55,17 @@
     margin-bottom: 15px;
 }
 
+.clean {
+    margin-top: 20px;
+}
+
 .far-element {
     margin-top: 45px;
+}
+
+.far-element-next {
+    margin-top: -30px;
+    margin-left: 150px;
 }
 
 .gravitation {
