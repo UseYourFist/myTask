@@ -17,11 +17,11 @@
     <div class="position element">
         <div class="txt-wrapper wrapper">
             <label for="left">Left:</label>
-            <input type="number" autofocus placeholder="250" min="0" max="700" value="250" name="left" id="left">
+            <input type="number" autofocus placeholder="250" min="0" max="700" value="250" name="left" id="left" title="Вы можете указать положение элемента щёлкнув на холсте">
         </div>
         <div class="txt-wrapper wrapper">
             <label for="top">Top:</label>
-            <input type="number" placeholder="100" min="0" max="500" value="100" name="top" id="top">
+            <input type="number" placeholder="100" min="0" max="500" value="100" name="top" id="top" title="Вы можете указать положение элемента щёлкнув на холсте">
         </div>
     </div>
     <div class="rectangle element">
@@ -91,12 +91,19 @@
 
     shape.on('mouse:over', function(e) {
         e.target.setStroke('red');
+        e.target.setOpacity(0.8);
         shape.renderAll();
     });
 
     shape.on('mouse:out', function(e) {
         e.target.setStroke('grey');
+        e.target.setOpacity(1);
         shape.renderAll();
+    });
+
+    shape.on('mouse:down', function(options) {
+        document.getElementById("left").value = options.e.clientX;
+        document.getElementById("top").value = options.e.clientY
     });
 </script>
 </body>
