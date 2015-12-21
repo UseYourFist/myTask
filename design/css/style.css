@@ -1,3 +1,6 @@
+.body {
+    Overflow: hidden;
+}
 .content {
     float: left;
     border: 3px solid black;

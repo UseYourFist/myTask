@@ -73,10 +73,13 @@ function grav(obj) {
     if(obj.checked){
         for(var key in Elements) {
             Elements[key].animate({
-                    'top': CANVAS_HEIGHT-Elements[key].height
+                    'top': CANVAS_HEIGHT-Elements[key].height,
+
                 },
                 {
-                    onChange: shape.renderAll.bind(shape)
+                    onChange: shape.renderAll.bind(shape),
+                    duration: 2000,
+                    easing: fabric.util.ease.easeOutBounce
                 }
             )
         }
@@ -92,3 +95,4 @@ function removeShapes() {
         shape.clear().renderAll();
 
 }
+
