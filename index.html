@@ -7,11 +7,11 @@
     <script src="application/factory.js"></script>
     <script src="application/main.js"></script>
 </head>
-<body bgcolor="#e6e6fa" class="body">
+<body>
 <canvas class="content" height='500' width='700' id='shape'></canvas>
 <form>
     <div class="control">
-    <header class="header">
+    <header>
         <h3>Add Shape:</h3>
     </header>
     <div class="position element">
@@ -81,6 +81,10 @@
         <input id="gravitation" type="checkbox" onchange="grav(this)">
         <label for="gravitation">Enable gravitation</label>
     </div>
+    <div class="borders">
+         <input id="borders" type="checkbox" onchange="bord(this)">
+         <label for="borders">Enable border for shapes</label>
+    </div>
 </div>
 </form>
 <script>
@@ -92,12 +96,14 @@
     shape.on('mouse:over', function(e) {
         e.target.setStroke('red');
         e.target.setOpacity(0.8);
+        e.target.setStrokeDashArray ([5, 5]);
         shape.renderAll();
     });
 
     shape.on('mouse:out', function(e) {
         e.target.setStroke('grey');
         e.target.setOpacity(1);
+        e.target.setStrokeDashArray ([5, 0]);
         shape.renderAll();
     });
 
@@ -105,6 +111,43 @@
         document.getElementById("left").value = options.e.clientX;
         document.getElementById("top").value = options.e.clientY
     });
+    var a = 0;
+    function bord(obj) {
+        if (obj.checked) {
+            a = 1;
+            alert(a)
+        }
+        else {
+            a = 0;
+            alert(a)
+        }
+    }
+    shape.on('mouse:move', function(options) {
+
+                if (options.e.clientX > 700 - shape.getActiveObject().width && a == 1) {
+                    shape.getActiveObject().lockMovementX = true;
+                }
+                else if (options.e.clientX < 0 + shape.getActiveObject().width && a == 1) {
+                    shape.getActiveObject().lockMovementX = true;
+                }
+                else if (options.e.clientX > 0 + shape.getActiveObject().width && a == 1) {
+                    shape.getActiveObject().lockMovementX = false;
+                }
+                if (options.e.clientY > 500 - shape.getActiveObject().height && a == 1) {
+                    shape.getActiveObject().lockMovementY = true;
+                }
+                else if (options.e.clientY < 0 + shape.getActiveObject().height && a == 1) {
+                    shape.getActiveObject().lockMovementY = true;
+                }
+                else if (options.e.clientY > 0 + shape.getActiveObject().height && a == 1) {
+                    shape.getActiveObject().lockMovementY = false;
+                }
+                else if (a == 0) {
+                    shape.getActiveObject().lockMovementY = false;
+                    shape.getActiveObject().lockMovementX = false;
+
+                }
+            });
 </script>
 </body>
 </html>

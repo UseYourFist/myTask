@@ -1,5 +1,9 @@
-.body {
+body {
     Overflow: hidden;
+    background-color: #e6e6fa;
+}
+h3 {
+    color: #a52a2a;
 }
 .content {
     float: left;
@@ -73,6 +77,11 @@
 
 .gravitation {
     margin-top: 40px;
+}
+
+.borders {
+    margin-top: -20px;
+    margin-left: 150px;
 }
 
 .position {

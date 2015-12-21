@@ -69,11 +69,12 @@ function createTriangle() {
     shape.add(triangle);
 }
 
+
 function grav(obj) {
     if(obj.checked){
         for(var key in Elements) {
             Elements[key].animate({
-                    'top': CANVAS_HEIGHT-Elements[key].height,
+                    'top': CANVAS_HEIGHT-Elements[key].height
 
                 },
                 {
