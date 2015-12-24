@@ -6,13 +6,15 @@ h3 {
     color: #a52a2a;
 }
 .content {
+    left: 10px;
+    top: 10px;
     float: left;
     border: 3px solid black;
 }
 .control {
     position: absolute;
     left: 735px;
-    top: 10px;
+    top: 0px;
     width: 700px;
     height: 500px;
 }
@@ -80,8 +82,7 @@ h3 {
 }
 
 .borders {
-    margin-top: -20px;
-    margin-left: 150px;
+    margin-top: 10px;
 }
 
 .position {

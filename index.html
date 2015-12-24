@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="design/css/style.css">
     <title>My task</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="design/css/style.css">
     <script src="application/factory.js"></script>
     <script src="application/main.js"></script>
 </head>
-<body>
+<body bgcolor="#e6e6fa">
 <canvas class="content" height='500' width='700' id='shape'></canvas>
 <form>
     <div class="control">
@@ -26,7 +27,7 @@
     </div>
     <div class="rectangle element">
         <div class="btn-wrapper wrapper">
-            <input type="button" value="Rectangle" onclick="createRectangle()">
+            <input type="button" class="btn btn-xs btn-success" value="Rectangle" onclick="createRectangle()">
         </div>
         <div class="clr-wrapper wrapper">
             <input id="color" type="color" value="#fa8e47" name="color">
@@ -42,7 +43,7 @@
     </div>
     <div class="circle element">
         <div class="btn-wrapper wrapper">
-            <input type="button" value="Circle" onclick="createCircle()">
+            <input type="button" class="btn btn-xs btn-success" value="Circle" onclick="createCircle()">
         </div>
         <div class="clr-wrapper wrapper">
             <input id="color1" type="color" value="#4dfa76" name="color1">
@@ -54,7 +55,7 @@
     </div>
     <div class="triangle element">
         <div class="btn-wrapper wrapper">
-            <input type="button" value="Triangle" onclick="createTriangle()">
+            <input type="button" class="btn btn-xs btn-success" value="Triangle" onclick="createTriangle()">
         </div>
         <div class="clr-wrapper wrapper">
             <input id="color0" type="color" value="#657efa" name="color0">
@@ -69,13 +70,13 @@
         </div>
     </div>
     <div class="clean btn-wrapper">
-        <input type="reset" name="rese" value="Clean options">
+        <input type="reset" name="rese" class="btn btn-xs btn-danger" value="Clean options">
     </div>
     <div class="far-element btn-wrapper">
-        <input type="button" value="Remove shape" onclick="removeShape()">
+        <input type="button" value="Remove shape" class="btn btn-xs btn-warning" onclick="removeShape()">
     </div>
     <div class="far-element-next btn-wrapper">
-        <input type="button" value="Clean canvas" onclick="removeShapes()">
+        <input type="button" value="Clean canvas" class="btn btn-xs btn-danger" onclick="removeShapes()">
     </div>
     <div class="gravitation">
         <input id="gravitation" type="checkbox" onchange="grav(this)">
@@ -108,38 +109,40 @@
     });
 
     shape.on('mouse:down', function(options) {
+        //alert(shape.getActiveObject().left);
         document.getElementById("left").value = options.e.clientX;
         document.getElementById("top").value = options.e.clientY
     });
     var a = 0;
     function bord(obj) {
         if (obj.checked) {
-            a = 1;
-            alert(a)
+           a = 1;
+            alert("Работает правильно если перемещать фигуру за центр");
         }
-        else {
-            a = 0;
-            alert(a)
+        else{
+                a = 0;
+            }
         }
-    }
+
+
     shape.on('mouse:move', function(options) {
 
-                if (options.e.clientX > 700 - shape.getActiveObject().width && a == 1) {
+                if (options.e.clientX > 700 - shape.getActiveObject().width/2 && a == 1) {
                     shape.getActiveObject().lockMovementX = true;
                 }
-                else if (options.e.clientX < 0 + shape.getActiveObject().width && a == 1) {
+                else if (options.e.clientX < 0 + shape.getActiveObject().width/2 && a == 1) {
                     shape.getActiveObject().lockMovementX = true;
                 }
-                else if (options.e.clientX > 0 + shape.getActiveObject().width && a == 1) {
+                else if (options.e.clientX > 0 + shape.getActiveObject().width/2 && a == 1) {
                     shape.getActiveObject().lockMovementX = false;
                 }
-                if (options.e.clientY > 500 - shape.getActiveObject().height && a == 1) {
+                if (options.e.clientY > 500 - shape.getActiveObject().height/2 && a == 1) {
                     shape.getActiveObject().lockMovementY = true;
                 }
-                else if (options.e.clientY < 0 + shape.getActiveObject().height && a == 1) {
+                else if (options.e.clientY < 0 + shape.getActiveObject().height/2 && a == 1) {
                     shape.getActiveObject().lockMovementY = true;
                 }
-                else if (options.e.clientY > 0 + shape.getActiveObject().height && a == 1) {
+                else if (options.e.clientY > 0 + shape.getActiveObject().height/2 && a == 1) {
                     shape.getActiveObject().lockMovementY = false;
                 }
                 else if (a == 0) {
