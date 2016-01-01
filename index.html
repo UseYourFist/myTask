@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="design/css/style.css">
     <script src="application/factory.js"></script>
-    <script src="application/main.js"></script>
 </head>
 <body bgcolor="#e6e6fa">
 <canvas class="content" height='500' width='700' id='shape'></canvas>
@@ -88,69 +87,6 @@
     </div>
 </div>
 </form>
-<script>
-    var shape = this.__shape =  new fabric.Canvas('shape');
-    shape.backgroundColor = 'white';
-    shape.selection = false;
-    shape.hoverCursor = 'pointer';
-
-    shape.on('mouse:over', function(e) {
-        e.target.setStroke('red');
-        e.target.setOpacity(0.8);
-        e.target.setStrokeDashArray ([5, 5]);
-        shape.renderAll();
-    });
-
-    shape.on('mouse:out', function(e) {
-        e.target.setStroke('grey');
-        e.target.setOpacity(1);
-        e.target.setStrokeDashArray ([5, 0]);
-        shape.renderAll();
-    });
-
-    shape.on('mouse:down', function(options) {
-        //alert(shape.getActiveObject().left);
-        document.getElementById("left").value = options.e.clientX;
-        document.getElementById("top").value = options.e.clientY
-    });
-    var a = 0;
-    function bord(obj) {
-        if (obj.checked) {
-           a = 1;
-            alert("Работает правильно если перемещать фигуру за центр");
-        }
-        else{
-                a = 0;
-            }
-        }
-
-
-    shape.on('mouse:move', function(options) {
-
-                if (options.e.clientX > 700 - shape.getActiveObject().width/2 && a == 1) {
-                    shape.getActiveObject().lockMovementX = true;
-                }
-                else if (options.e.clientX < 0 + shape.getActiveObject().width/2 && a == 1) {
-                    shape.getActiveObject().lockMovementX = true;
-                }
-                else if (options.e.clientX > 0 + shape.getActiveObject().width/2 && a == 1) {
-                    shape.getActiveObject().lockMovementX = false;
-                }
-                if (options.e.clientY > 500 - shape.getActiveObject().height/2 && a == 1) {
-                    shape.getActiveObject().lockMovementY = true;
-                }
-                else if (options.e.clientY < 0 + shape.getActiveObject().height/2 && a == 1) {
-                    shape.getActiveObject().lockMovementY = true;
-                }
-                else if (options.e.clientY > 0 + shape.getActiveObject().height/2 && a == 1) {
-                    shape.getActiveObject().lockMovementY = false;
-                }
-                else if (a == 0) {
-                    shape.getActiveObject().lockMovementY = false;
-                    shape.getActiveObject().lockMovementX = false;
-
-                }
-            });
-</script>
+<script src="application/main.js"></script>
 </body>
 </html>

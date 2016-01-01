@@ -97,3 +97,77 @@ function removeShapes() {
 
 }
 
+var heading = document.querySelector('h3');
+
+setInterval(function() {
+    var hue = 'rgb(' + (Math.floor(Math.random() * 256)) +
+        ',' +
+        (Math.floor(Math.random() * 256)) +
+        ',' +
+        (Math.floor(Math.random() * 256)) + ')';
+
+    heading.style.color = hue;
+}, 1000);
+
+var shape = this.__shape =  new fabric.Canvas('shape');
+shape.backgroundColor = 'white';
+shape.selection = false;
+shape.hoverCursor = 'pointer';
+
+shape.on('mouse:over', function(e) {
+    e.target.setStroke('red');
+    e.target.setOpacity(0.8);
+    e.target.setStrokeDashArray ([5, 5]);
+    shape.renderAll();
+});
+
+shape.on('mouse:out', function(e) {
+    e.target.setStroke('grey');
+    e.target.setOpacity(1);
+    e.target.setStrokeDashArray ([5, 0]);
+    shape.renderAll();
+});
+
+shape.on('mouse:down', function(options) {
+    //alert(shape.getActiveObject().left);
+    document.getElementById("left").value = options.e.clientX;
+    document.getElementById("top").value = options.e.clientY
+});
+var a = 0;
+function bord(obj) {
+    if (obj.checked) {
+        a = 1;
+        alert("Работает правильно если перемещать фигуру за центр");
+    }
+    else{
+        a = 0;
+    }
+}
+
+
+shape.on('mouse:move', function(options) {
+
+    if (options.e.clientX > 710 - shape.getActiveObject().width/2 && a == 1) {
+        shape.getActiveObject().lockMovementX = true;
+    }
+    else if (options.e.clientX < 10 + shape.getActiveObject().width/2 && a == 1) {
+        shape.getActiveObject().lockMovementX = true;
+    }
+    else if (options.e.clientX > 10 + shape.getActiveObject().width/2 && a == 1) {
+        shape.getActiveObject().lockMovementX = false;
+    }
+    if (options.e.clientY > 510 - shape.getActiveObject().height/2 && a == 1) {
+        shape.getActiveObject().lockMovementY = true;
+    }
+    else if (options.e.clientY < 10 + shape.getActiveObject().height/2 && a == 1) {
+        shape.getActiveObject().lockMovementY = true;
+    }
+    else if (options.e.clientY > 10 + shape.getActiveObject().height/2 && a == 1) {
+        shape.getActiveObject().lockMovementY = false;
+    }
+    else if (a == 0) {
+        shape.getActiveObject().lockMovementY = false;
+        shape.getActiveObject().lockMovementX = false;
+
+    }
+});
