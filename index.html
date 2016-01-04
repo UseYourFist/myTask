@@ -17,11 +17,14 @@
     <div class="position element">
         <div class="txt-wrapper wrapper">
             <label for="left">Left:</label>
-            <input type="number" autofocus placeholder="250" min="0" max="700" value="250" name="left" id="left" title="Вы можете указать положение элемента щёлкнув на холсте">
+            <input type="number" autofocus placeholder="250" min="0" max="700" value="250" name="left" id="left">
         </div>
         <div class="txt-wrapper wrapper">
             <label for="top">Top:</label>
-            <input type="number" placeholder="100" min="0" max="500" value="100" name="top" id="top" title="Вы можете указать положение элемента щёлкнув на холсте">
+            <input type="number" placeholder="100" min="0" max="500" value="100" name="top" id="top">
+        </div>
+        <div class="alert">
+            Вы так же можете указать местоположение фигуры кликнув на холсте.
         </div>
     </div>
     <div class="rectangle element">
@@ -84,6 +87,9 @@
     <div class="borders">
          <input id="borders" type="checkbox" onchange="bord(this)">
          <label for="borders">Enable border for shapes</label>
+        <div class="alert-1">
+            Работает правильно если перемещать фигуру за центр.
+        </div>
     </div>
 </div>
 </form>

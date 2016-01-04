@@ -84,6 +84,7 @@ function grav(obj) {
                 }
             )
         }
+        //setTimeout(obj.checked = false, 5000)
     }
 
 }
@@ -107,7 +108,7 @@ setInterval(function() {
         (Math.floor(Math.random() * 256)) + ')';
 
     heading.style.color = hue;
-}, 1000);
+}, 5000);
 
 var shape = this.__shape =  new fabric.Canvas('shape');
 shape.backgroundColor = 'white';
@@ -137,7 +138,6 @@ var a = 0;
 function bord(obj) {
     if (obj.checked) {
         a = 1;
-        alert("Работает правильно если перемещать фигуру за центр");
     }
     else{
         a = 0;
