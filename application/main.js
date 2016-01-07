@@ -75,14 +75,25 @@ function grav(obj) {
         for(var key in Elements) {
             Elements[key].animate({
                     'top': CANVAS_HEIGHT-Elements[key].height
-
                 },
                 {
                     onChange: shape.renderAll.bind(shape),
                     duration: 2000,
                     easing: fabric.util.ease.easeOutBounce
                 }
-            )
+            );
+            shape.on('mouse:up', function() {
+                if (shape.getActiveObject().width > 0){
+                    shape.getActiveObject().animate({
+                            'top': CANVAS_HEIGHT-shape.getActiveObject().height
+                        },
+                        {
+                            onChange: shape.renderAll.bind(shape),
+                            duration: 2000,
+                            easing: fabric.util.ease.easeOutBounce
+                        }
+                    )};
+            });
         }
         //setTimeout(obj.checked = false, 5000)
     }
