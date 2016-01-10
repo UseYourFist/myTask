@@ -95,7 +95,7 @@ function grav(obj) {
                     )};
             });
         }
-        //setTimeout(obj.checked = false, 5000)
+        //setTimeout(obj.checked = false, 5000);
     }
 
 }
