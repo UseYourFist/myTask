@@ -145,40 +145,35 @@ shape.on('mouse:down', function(options) {
     document.getElementById("left").value = options.e.clientX;
     document.getElementById("top").value = options.e.clientY
 });
-var a = 0;
-function bord(obj) {
+
+function bord(obj){
     if (obj.checked) {
-        a = 1;
+        shape.on('mouse:move', function(options) {
+
+            if (options.e.clientX > 710 - shape.getActiveObject().width/2) {
+                shape.getActiveObject().lockMovementX = true;
+            }
+            else if (options.e.clientX < 10 + shape.getActiveObject().width/2) {
+                shape.getActiveObject().lockMovementX = true;
+            }
+            else if (options.e.clientX > 10 + shape.getActiveObject().width/2) {
+                shape.getActiveObject().lockMovementX = false;
+            }
+            if (options.e.clientY > 510 - shape.getActiveObject().height/2) {
+                shape.getActiveObject().lockMovementY = true;
+            }
+            else if (options.e.clientY < 10 + shape.getActiveObject().height/2) {
+                shape.getActiveObject().lockMovementY = true;
+            }
+            else if (options.e.clientY > 10 + shape.getActiveObject().height/2) {
+                shape.getActiveObject().lockMovementY = false;
+            }
+        })
     }
-    else{
-        a = 0;
+    else {
+        shape.on('mouse:move', function() {
+            shape.getActiveObject().lockMovementY = false;
+            shape.getActiveObject().lockMovementX = false;
+        })
     }
 }
-
-
-shape.on('mouse:move', function(options) {
-
-    if (options.e.clientX > 710 - shape.getActiveObject().width/2 && a == 1) {
-        shape.getActiveObject().lockMovementX = true;
-    }
-    else if (options.e.clientX < 10 + shape.getActiveObject().width/2 && a == 1) {
-        shape.getActiveObject().lockMovementX = true;
-    }
-    else if (options.e.clientX > 10 + shape.getActiveObject().width/2 && a == 1) {
-        shape.getActiveObject().lockMovementX = false;
-    }
-    if (options.e.clientY > 510 - shape.getActiveObject().height/2 && a == 1) {
-        shape.getActiveObject().lockMovementY = true;
-    }
-    else if (options.e.clientY < 10 + shape.getActiveObject().height/2 && a == 1) {
-        shape.getActiveObject().lockMovementY = true;
-    }
-    else if (options.e.clientY > 10 + shape.getActiveObject().height/2 && a == 1) {
-        shape.getActiveObject().lockMovementY = false;
-    }
-    else if (a == 0) {
-        shape.getActiveObject().lockMovementY = false;
-        shape.getActiveObject().lockMovementX = false;
-
-    }
-});
