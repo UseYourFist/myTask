@@ -83,7 +83,7 @@ function grav(obj) {
                 }
             );
             shape.on('mouse:up', function() {
-                if (shape.getActiveObject().width > 0){
+                if (shape.getActiveObject().width > 0 && obj.checked){
                     shape.getActiveObject().animate({
                             'top': CANVAS_HEIGHT-shape.getActiveObject().height
                         },
@@ -97,7 +97,6 @@ function grav(obj) {
         }
         //setTimeout(obj.checked = false, 5000);
     }
-
 }
 function removeShape() {
     shape.getActiveObject().remove();
