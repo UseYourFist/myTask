@@ -78,7 +78,7 @@ function grav(obj) {
                 }
             );
             shape.on('mouse:up', function() {
-                if (shape.getActiveObject().width > 0 && obj.checked){
+                if (obj.checked){
                     shape.getActiveObject().animate({
                             'top': CANVAS_HEIGHT-shape.getActiveObject().height
                         },
@@ -87,7 +87,8 @@ function grav(obj) {
                             duration: 2000,
                             easing: fabric.util.ease.easeOutBounce
                         }
-                    )};
+                    )
+                    shape.getActiveObject().bringToFront()};
             });
         }
     }
