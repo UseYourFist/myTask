@@ -1,9 +1,7 @@
 /**
  * Created by spr47 on 20.11.15.
  */
-var Elements = [];
 var CANVAS_HEIGHT = 500;
-var CANVAS_WIDTH = 700;
 
 function createRectangle() {
     var color = document.getElementById("color").value;
@@ -22,7 +20,6 @@ function createRectangle() {
         strokeWidth: 2,
         hasControls: false
     });
-    Elements.push(rect);
     shape.add(rect);
 }
 
@@ -43,7 +40,6 @@ function createCircle() {
         hasControls: false,
         perPixelTargetFind: true
     });
-    Elements.push(circle);
     shape.add(circle);
 }
 
@@ -65,16 +61,15 @@ function createTriangle() {
         hasControls: false,
         perPixelTargetFind: true
     });
-    Elements.push(triangle);
     shape.add(triangle);
 }
 
 
 function grav(obj) {
     if(obj.checked){
-        for(var key in Elements) {
-            Elements[key].animate({
-                    'top': CANVAS_HEIGHT-Elements[key].height
+        for(var i=0; i < shape.getObjects().length; i++) {
+            shape.item(i).animate({
+                    'top': CANVAS_HEIGHT-shape.item(i).height
                 },
                 {
                     onChange: shape.renderAll.bind(shape),
@@ -95,7 +90,6 @@ function grav(obj) {
                     )};
             });
         }
-        //setTimeout(obj.checked = false, 5000);
     }
 }
 function removeShape() {
@@ -140,7 +134,6 @@ shape.on('mouse:out', function(e) {
 });
 
 shape.on('mouse:down', function(options) {
-    //alert(shape.getActiveObject().left);
     document.getElementById("left").value = options.e.clientX;
     document.getElementById("top").value = options.e.clientY
 });
