@@ -2,6 +2,7 @@
  * Created by spr47 on 20.11.15.
  */
 var CANVAS_HEIGHT = 500;
+var CANVAS_WIDTH = 700;
 
 function createRectangle() {
     var color = document.getElementById("color").value;
@@ -142,25 +143,42 @@ shape.on('mouse:down', function(options) {
 function bord(obj){
     if (obj.checked) {
         shape.on('mouse:move', function(options) {
+            if (shape.getActiveObject().top < 0 || shape.getActiveObject().top > CANVAS_HEIGHT - shape.getActiveObject().height) {
+                shape.getActiveObject().lockMovementY = true;
+            }
 
-            if (options.e.clientX > 710 - shape.getActiveObject().width/2) {
-                shape.getActiveObject().lockMovementX = true;
-            }
-            else if (options.e.clientX < 10 + shape.getActiveObject().width/2) {
-                shape.getActiveObject().lockMovementX = true;
-            }
-            else if (options.e.clientX > 10 + shape.getActiveObject().width/2) {
-                shape.getActiveObject().lockMovementX = false;
-            }
-            if (options.e.clientY > 510 - shape.getActiveObject().height/2) {
-                shape.getActiveObject().lockMovementY = true;
-            }
-            else if (options.e.clientY < 10 + shape.getActiveObject().height/2) {
-                shape.getActiveObject().lockMovementY = true;
-            }
-            else if (options.e.clientY > 10 + shape.getActiveObject().height/2) {
+            if (options.e.clientY > 10 + shape.getActiveObject().height && options.e.clientY - 10 < CANVAS_HEIGHT - shape.getActiveObject().height) {
                 shape.getActiveObject().lockMovementY = false;
             }
+
+            if (shape.getActiveObject().left < 0 || shape.getActiveObject().left > CANVAS_WIDTH - shape.getActiveObject().width) {
+                shape.getActiveObject().lockMovementX = true;
+            }
+
+            if (options.e.clientX > 10 + shape.getActiveObject().width && options.e.clientX - 10 < CANVAS_WIDTH - shape.getActiveObject().width) {
+                shape.getActiveObject().lockMovementX = false;
+            }
+
+
+
+            //if (options.e.clientX > 710 - shape.getActiveObject().width/2) {
+            //    shape.getActiveObject().lockMovementX = true;
+            //}
+            //else if (options.e.clientX < 10 + shape.getActiveObject().width/2) {
+            //    shape.getActiveObject().lockMovementX = true;
+            //}
+            //else if (options.e.clientX > 10 + shape.getActiveObject().width/2) {
+            //    shape.getActiveObject().lockMovementX = false;
+            //}
+            //if (options.e.clientY > 510 - shape.getActiveObject().height/2) {
+            //    shape.getActiveObject().lockMovementY = true;
+            //}
+            //else if (options.e.clientY < 10 + shape.getActiveObject().height/2) {
+            //    shape.getActiveObject().lockMovementY = true;
+            //}
+            //else if (options.e.clientY > 10 + shape.getActiveObject().height/2) {
+            //    shape.getActiveObject().lockMovementY = false;
+            //}
         })
     }
     else {
