@@ -138,8 +138,17 @@ label{
     margin-left: 210px;
     text-shadow: 0 1px 1px white;
     box-shadow: 3px 3px 4px green;
+    width: 360px;
 }
 
 .position:hover .alert, .borders:hover .alert-1{
     display: block;
+}
+
+.hid, .hid-1, .hid-2{
+    display: none;
+}
+
+.rectangle:hover .hid, .circle:hover .hid-1, .triangle:hover .hid-2{
+    display: inline-block;
 }

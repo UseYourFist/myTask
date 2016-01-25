@@ -22,6 +22,18 @@ function createRectangle() {
         hasControls: false
     });
     shape.add(rect);
+    /*var elems = document.getElementsByClassName('hid');
+    for(var j=0; j < elems.length; j++) {
+        elems[j].style.display = 'inline-block';
+    }
+    var elems1 = document.getElementsByClassName('hid-1');
+    for(var j=0; j < elems1.length; j++) {
+        elems1[j].style.display = 'none';
+    }
+    var elems2 = document.getElementsByClassName('hid-2');
+    for(var j=0; j < elems2.length; j++) {
+        elems2[j].style.display = 'none';
+    }*/
 }
 
 function createCircle() {
@@ -42,6 +54,18 @@ function createCircle() {
         perPixelTargetFind: true
     });
     shape.add(circle);
+   /* var elems = document.getElementsByClassName('hid');
+    for(var j=0; j < elems.length; j++) {
+        elems[j].style.display = 'none';
+    }
+    var elems1 = document.getElementsByClassName('hid-1');
+    for(var j=0; j < elems1.length; j++) {
+        elems1[j].style.display = 'inline-block';
+    }
+    var elems2 = document.getElementsByClassName('hid-2');
+    for(var j=0; j < elems2.length; j++) {
+        elems2[j].style.display = 'none';
+    }*/
 }
 
 function createTriangle() {
@@ -63,6 +87,18 @@ function createTriangle() {
         perPixelTargetFind: true
     });
     shape.add(triangle);
+    var elems = document.getElementsByClassName('hid');
+    /*for(var j=0; j < elems.length; j++) {
+        elems[j].style.display = 'none';
+    }
+    var elems1 = document.getElementsByClassName('hid-1');
+    for(var j=0; j < elems1.length; j++) {
+        elems1[j].style.display = 'none';
+    }
+    var elems2 = document.getElementsByClassName('hid-2');
+    for(var j=0; j < elems2.length; j++) {
+        elems2[j].style.display = 'inline-block';
+    }*/
 }
 
 

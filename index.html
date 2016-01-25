@@ -29,16 +29,16 @@
     </div>
     <div class="rectangle element">
         <div class="btn-wrapper wrapper">
-            <input type="button" class="btn btn-xs btn-success" value="Rectangle" onclick="createRectangle()">
+            <input type="button" class="btn btn-xs btn-success"  value="Rectangle" onclick="createRectangle()">
         </div>
-        <div class="clr-wrapper wrapper">
+        <div class="clr-wrapper wrapper hid">
             <input id="color" type="color" value="#fa8e47" name="color">
         </div>
-        <div class="txt-wrapper wrapper">
+        <div class="txt-wrapper wrapper hid">
             <label for="width">W:</label>
             <input type="number" placeholder="100" value="100" min="0" max="700" name="width" id="width">
         </div>
-        <div class="txt-wrapper wrapper">
+        <div class="txt-wrapper wrapper hid">
             <label for="height">H:</label>
             <input type="number" placeholder="100" value="100" min="0" max="500" name="height" id="height">
         </div>
@@ -47,10 +47,10 @@
         <div class="btn-wrapper wrapper">
             <input type="button" class="btn btn-xs btn-success" value="Circle" onclick="createCircle()">
         </div>
-        <div class="clr-wrapper wrapper">
+        <div class="clr-wrapper wrapper hid-1">
             <input id="color1" type="color" value="#4dfa76" name="color1">
         </div>
-        <div class="txt-wrapper wrapper">
+        <div class="txt-wrapper wrapper hid-1">
             <label for="radius">R :</label>
             <input type="number" placeholder="60" value="60" min="0" max="250" name="radius" id="radius">
         </div>
@@ -59,14 +59,14 @@
         <div class="btn-wrapper wrapper">
             <input type="button" class="btn btn-xs btn-success" value="Triangle" onclick="createTriangle()">
         </div>
-        <div class="clr-wrapper wrapper">
+        <div class="clr-wrapper wrapper hid-2">
             <input id="color0" type="color" value="#657efa" name="color0">
         </div>
-        <div class="txt-wrapper wrapper">
+        <div class="txt-wrapper wrapper hid-2">
             <label for="width1">W:</label>
             <input type="number" placeholder="100" value="100" min="0" max="500" name="width1" id="width1">
         </div>
-        <div class="txt-wrapper wrapper">
+        <div class="txt-wrapper wrapper hid-2">
             <label for="height1">H:</label>
             <input type="number" placeholder="100" value="100" min="0" max="700" name="height1" id="height1">
         </div>
@@ -88,7 +88,7 @@
          <input id="borders" type="checkbox" onchange="bord(this)">
          <label for="borders">Enable border for shapes</label>
         <div class="alert-1">
-            Работает правильно если перемещать фигуру за центр.
+            Ограничение перемещения фигур полями холста.
         </div>
     </div>
 </div>
